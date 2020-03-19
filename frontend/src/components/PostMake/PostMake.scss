@@ -1,0 +1,112 @@
+@import 'styles/utils.scss';
+
+input, textarea {
+  background-color: transparent;
+  border: none;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+}
+
+.make_back_color {
+  background-color: $oc-gray-7;
+  margin: 0px;
+  padding:0px;
+  height: 720px;
+  width: 100%;
+
+  .make_front_color {
+    background-color: $oc-gray-9;
+    width: 1136px;
+    height: 600px;
+    position: relative;
+    left: 200px;
+    top: 50px;
+
+    .make_switch_back {
+      width: 35px;
+      height: 10px;
+      border-radius: 10px;
+      background-color: $oc-gray-5;
+      position: relative;
+      top: 20px;
+      left: 15px;
+    }
+    .make_switch_light_btn {
+      width: 20px;
+      height: 20px;
+      border: none;
+      border-radius: 100px;
+      background-color: white;
+      position: absolute;
+      top: 15px;
+      left:10px;
+      cursor: pointer;
+    }
+    .make_switch_dark_btn {
+      width: 20px;
+      height: 20px;
+      border:none;
+      border-radius: 100px;
+      background-color: black;
+      position: absolute;
+      top:15px;
+      left:35px;
+      cursor: pointer;
+    }
+
+    .make_table {
+      border-top: 1px solid white;
+      border-bottom: 1px solid white;
+      position: relative;
+      left: 100px;
+      top:50px;
+      width: 920px;
+
+      .make_table_header {
+        border-bottom: 1px solid white;
+      }
+
+      .make_title {
+        text-align: center;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        font-size: 15px;
+        width: 920px;
+      }
+
+      .make_line {
+        border-top: 1px solid white;
+      }
+      .make_two_line {
+        border-top: 1px solid white;
+      }
+
+      .make_context {
+        resize: none;
+        width: 920px;
+        height: 350px;
+        padding-top: 20px;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 30px;
+      }
+    }
+
+    .make_bottom_line {
+      width: 930px;
+      border-top: 1px solid white;
+      position: relative;
+      left:100px;
+      top:55px;
+    }
+
+    .make_submit_btn {
+      position: relative;
+      left:980px;
+      top: 70px;
+      cursor: pointer;
+    }
+  }
+}

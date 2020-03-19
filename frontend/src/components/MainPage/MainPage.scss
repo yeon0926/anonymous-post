@@ -1,0 +1,214 @@
+@import 'styles/utils.scss';
+
+input:focus {
+  outline: none;
+}
+
+.main_back_color {
+  background-color: $oc-gray-7;
+  margin: 0px;
+  padding:0px;
+  height: 100vh;
+  width: 100%;
+  display: table;
+
+
+  .main_front_color {
+    background-color: $oc-gray-9;
+    color: white;
+    height: 100vh;
+
+    /* Extra small devices (phones, 600px and down) */
+    @media only screen and (max-width: 600px) {
+      /* ...*/
+    }
+    /* Small devices (portrait tablets and large phones, 600px and up) */
+    @media only screen and (min-width: 600px) {
+      margin:0px;
+    }
+    /* Medium devices (landscape tablets, 768px and up) */
+    @media only screen and (min-width: 768px) {
+
+    }
+    /* Large devices (laptops/desktops, 992px and up) */
+    @media only screen and (min-width: 992px) {
+      margin-left: 200px;
+      margin-right: 200px;
+    }
+    /* Extra large devices (large laptops and desktops, 1200px and up) */
+    @media only screen and (min-width: 1200px) {
+      /* ... */
+    }
+
+    .main_switch_back {
+      width: 35px;
+      height: 10px;
+      border-radius: 10px;
+      background-color: $oc-gray-5;
+      position: relative;
+      top: 20px;
+      left: 15px;
+    }
+    .main_switch_light_btn {
+      width: 20px;
+      height: 20px;
+      border: none;
+      border-radius: 100px;
+      background-color: white;
+      position: absolute;
+      top: 15px;
+      cursor: pointer;
+      z-index:1;
+      @media only screen and (max-width: 600px) {
+        left:10px;
+      }
+      @media only screen and (min-width: 600px) {
+        left: 10px;
+      }
+      @media only screen and (min-width: 992px) {
+        left: 212px;
+      }
+    }
+    .main_switch_dark_btn {
+      width: 20px;
+      height: 20px;
+      border:none;
+      border-radius: 100px;
+      background-color: black;
+      position: absolute;
+      top:15px;
+      cursor: pointer;
+      z-index: 2;
+      @media only screen and (max-width: 600px) {
+        left:10px;
+      }
+      @media only screen and (min-width: 600px) {
+        left: 30px;
+      }
+      @media only screen and (min-width: 992px) {
+        left: 235px;
+      }
+    }
+
+    .title {
+      position: relative;
+      left:50%;
+      transform: translateX(-50%);
+      font-size: 40px;
+      text-align: center;
+    }
+    .notice {
+      text-align: center;
+      font-size: 12px;
+      position: relative;
+      top: 30px;
+      margin-bottom: 30px;
+    }
+
+    .main_table {
+      border-top: 1px solid white;
+      border-collapse: collapse;
+      position: relative;
+      top:10px;
+      text-align: left;
+      font-size: 15px;
+      left:50%;
+      transform: translateX(-50%);
+
+
+      .post_date, .post_title, .commet_number {
+        padding-top: 4px;
+        padding-bottom: 4px;
+        border-bottom: 1px solid white;
+      }
+
+      .post_date {
+        padding-left: 10px;
+
+        @media only screen and (min-width: 600px) {
+          padding-right: 0px;
+        }
+        @media only screen and (min-width: 992px) {
+          padding-right: 120px;
+        }
+      }
+      .post_title {
+        @media only screen and (min-width: 600px) {
+          padding-right: 0px;
+          width: 500px;
+        }
+        @media only screen and (min-width: 992px) {
+          padding-right: 650px;
+          width: 0px;
+        }
+      }
+      .commet_number {
+        @media only screen and (min-width: 600px) {
+          padding-right: 0px;
+        }
+        @media only screen and (min-width: 992px) {
+          padding-right: 20px;
+        }
+      }
+
+      .main_arrlist {
+        height: 500px;
+      }
+
+      .target_date {
+        padding-left: 10px;
+      }
+
+      th, tr {
+        padding-top: 2px;
+        padding-bottom: 2px;
+      }
+
+      .th_size {
+        height: 20px;
+      }
+
+      .main_line {
+        border-bottom: 1px solid white;
+        width: 700px;
+      }
+      .main_two-line {
+        padding-bottom: 6px;
+      }
+    }
+
+    .main_bottom_line {
+      border-bottom: 1px solid white;
+      width: 920px;
+      position: relative;
+      top:15px;
+      left:50%;
+      transform: translateX(-50%);
+
+      @media only screen and (min-width: 600px) {
+        width: 720px;
+      }
+      @media only screen and (min-width: 992px) {
+        width: 920px;
+      }
+    }
+    .main_two_bottom_line {
+      top: 20px;
+    }
+
+    .page_number {
+      position: relative;
+      text-align: center;
+      top:30px;
+
+      .left_button, .right_button {
+        -ms-user-select: none;
+        -moz-user-select: -moz-none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        user-select:none;
+        cursor: pointer;
+      }
+    }
+  }
+}
