@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import { Link } from "react-router-dom";
 import styles from './PostMake.scss';
 import classNames from 'classnames/bind';
-import axios from 'axios';
+
+const axios = require('axios');
 
 const cx = classNames.bind(styles);
 
@@ -48,21 +49,35 @@ class PostMake extends Component {
   }
 
   handleWriteDown = () => {
+    const {title, context, date} = this.state;
+
     console.log(this.state.title);
     console.log(this.state.context);
     console.log(this.state.date);
 
-    axios({
-      method:'post',
-      url: 'api/writePost',
-      data: {
-        date: this.state.date,
-        title:this.state.title,
-        text: this.state.context
-      }
-    })
-    .then( response => { console.log(response) })
-    .catch( response => { console.log(response) });
+    // axios({
+    //   method:'post',
+    //   url: 'api/writePost',
+    //   data: {
+    //     date: this.state.date,
+    //     title:this.state.title,
+    //     text: this.state.context
+    //   }
+    // })
+    // .then( response => { console.log(response) })
+    // .catch( response => { console.log(response) });
+
+    axios.post('/api/writePost', {
+        date: date,
+        title: title,
+        text: context,
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
 
     this.setState({
       title: '',
@@ -113,7 +128,7 @@ class PostMake extends Component {
             </table>
           </form>
           <div style={{borderColor:FONTCOLOR}} className={cx('make_bottom_line')}></div>
-          <Link to={{pathname:`/`}} style={{color:FONTCOLOR}} className={cx('make_submit_btn')} onClick={this.handleWriteDown}>글쓰기</Link>
+          <Link to="/" style={{color:FONTCOLOR}} className={cx('make_submit_btn')} onClick={this.handleWriteDown}>글쓰기</Link>
         </div>
       </div>
     );

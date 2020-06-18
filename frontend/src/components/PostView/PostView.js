@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import styles from './PostView.scss';
 import classNames from 'classnames/bind';
 
+const axios = require('axios');
+
 const cx = classNames.bind(styles);
 
 class PostMake extends Component {
@@ -50,23 +52,40 @@ class PostMake extends Component {
   }
 
   componentDidMount() {
-    const res = fetch('/api/main', {
-      method: 'post',
-      headers: { 'Content-Type' : 'application/json' },
-      body: {
-        pageNum : this.state.pageNum,
-      },
+    const { pageNum } = this.state;
+
+    axios.post('api/main', {
+      pageNum: pageNum
     })
-    .then((response) => response.json())
-    .then((responseJson) => {
-      return responseJson.id;
-      return responseJson.title;
-      return responseJson.date;
-      return responseJson.commany;
+    .then(function (response) {
+      console.log(response);
+      return response.id;
+      return response.title;
+      return response.date;
+      return response.commany;
     })
-    .catch((error) => {
+    .catch(function (error) {
       console.log(error);
     })
+
+    // const res = fetch('/api/main', {
+    //   method: 'post',
+    //   headers: { 'Content-Type' : 'application/json' },
+    //   body: {
+    //     pageNum : this.state.pageNum,
+    //   },
+    // })
+    // .then((response) => response.json())
+    // .then((responseJson) => {
+    //   return responseJson.id;
+    //   return responseJson.title;
+    //   return responseJson.date;
+    //   return responseJson.commany;
+    // })
+    // .catch((error) => {
+    //   console.log(error);
+    // })
+
   }
 
   render() {

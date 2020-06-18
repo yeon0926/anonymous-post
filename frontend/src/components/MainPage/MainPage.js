@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import styles from './MainPage.scss';
 import { Link } from "react-router-dom";
 import classNames from 'classnames/bind';
-import axios from 'axios';
+
+const axios = require('axios');
 
 const cx = classNames.bind(styles);
 
@@ -32,69 +33,67 @@ class MainPage extends Component {
   }
 
   handleBack = (e) => {
+    const { pageNum } = this.state;
+
     this.setState({
       pageNum: this.state.pageNum - 1
     });
-    const res = fetch('/api/main', {
-      method: 'post',
-      headers: { 'Content-Type' : 'application/json' },
-      body: {
-        pageNum : this.state.pageNum,
-      },
+
+    axios.post('/api/main', {
+      pageNum: pageNum - 1
     })
-    .then((response) => response.json())
-    .then((responseJson) => {
-      return responseJson.id;
-      return responseJson.title;
-      return responseJson.date;
-      return responseJson.commany;
+    .then(function (response) {
+      console.log(response);
+      return response.id;
+      return response.title;
+      return response.date;
+      return response.commany;
     })
-    .catch((error) => {
+    .catch(function (error) {
       console.log(error);
     })
   }
 
-  handleNext = (e) => {
+  handleNext = () => {
+    const { pageNum } = this.state;
+
     this.setState({
-      pageNum: this.state.pageNum + 1
+      pageNum: pageNum + 1
     });
-    const res = fetch('/api/main', {
-      method: 'post',
-      headers: { 'Content-Type' : 'application/json' },
-      body: {
-        pageNum : this.state.pageNum,
-      },
+    console.log(pageNum);
+
+    axios.post('/api/main', {
+      pageNum: pageNum + 1
     })
-    .then((response) => response.json())
-    .then((responseJson) => {
-      return responseJson.id;
-      return responseJson.title;
-      return responseJson.date;
-      return responseJson.commany;
+    .then(function (response) {
+      console.log(response);
+      return response.id;
+      return response.title;
+      return response.date;
+      return response.commany;
     })
-    .catch((error) => {
+    .catch(function (error) {
       console.log(error);
     })
   }
 
-  componentDidMount(){
-    const res = fetch('/api/main', {
-      method: 'post',
-      headers: { 'Content-Type' : 'application/json' },
-      body: {
-        pageNum : this.state.pageNum,
-      },
+  componentDidMount() {
+    const {pageNum} = this.state;
+
+    axios.post('api/main', {
+      pageNum: pageNum
     })
-    .then((response) => response.json())
-    .then((responseJson) => {
-      console.log(responseJson.id);
-      console.log(responseJson.date);
-      console.log(responseJson.title);
-      console.log(responseJson.commay);
+    .then(function (response) {
+      console.log(response);
+      return response.id;
+      return response.title;
+      return response.date;
+      return response.commany;
     })
-    .catch((error) => {
+    .catch(function (error) {
       console.log(error);
-    })
+    });
+
     // const {arrs} = this.state;
     //
     // const newArrs = {
@@ -110,7 +109,6 @@ class MainPage extends Component {
     //   title: '',
     //   comment: '',
     // });
-
   }
 
   render() {
